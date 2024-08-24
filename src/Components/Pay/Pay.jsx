@@ -42,16 +42,13 @@ export default function Pay() {
         let { iserror: cartError, error: cartApiError, data: cartData, isLoading: cartLoading } = useQueryCart('getcart', getCartApi);
         let { mutate: onlinePaymentMutate, data: onlinePaymentData } = useMutationCart(onlinepayment);
         let { mutate: cashPaymentMutate, data: cashPaymentData } = useMutationCart(Cash);
-
         let api = cartData?.data?.data?._id
-
         function handleSubmit(shippingAddress){
                 onlinePaymentMutate({api,shippingAddress})
                 cashPaymentMutate({api,shippingAddress})
                 console.log(onlinePaymentData);
                 console.log(cashPaymentData);
         }
-        console.log(api);
         console.log(onlinePaymentData?.data);
         if(onlinePaymentData?.data?.status === 'success'){
             window.location.href = onlinePaymentData?.data?.session?.url
