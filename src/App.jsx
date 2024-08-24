@@ -16,6 +16,7 @@ import Brands from './Components/Brands/Brands'
 import Cart from './Components/Cart/Cart'
 import WishList from './Components/WishList/WishList'
 import Products from './Components/Products/Products'
+import Pay from './Components/Pay/Pay'
 
 function App() {
 
